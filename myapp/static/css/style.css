@@ -8,7 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 400px;
+  min-height: 400px;
   color:white;
 
 }
@@ -21,9 +21,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 400px;
+  min-height: 400px;
   color:white;
 
+}
+@media only screen and (max-device-width: 1024px) {
+  .about, .contacts {
+    background-attachment: scroll;
+  }
 }
 body {
     position: relatives; 
@@ -73,3 +78,4 @@ nav .active{
     height:290px;
   }
 }
+
