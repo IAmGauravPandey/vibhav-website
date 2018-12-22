@@ -25,11 +25,11 @@
   color:white;
 
 }
-@media only screen and (max-device-width: 1024px) {
+/* @media only screen and (max-device-width: 1024px) {
   .about, .contacts {
     background-attachment: scroll;
   }
-}
+} */
 body {
     position: relatives; 
 }
