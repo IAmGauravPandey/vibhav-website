@@ -115,7 +115,7 @@ def verify(request):
                 if str(x) == str(coupon):
                         y=UserProfile.objects.get(user=request.user)
                         z=y.coins
-                        y.coins=500+100
+                        y.coins=z+100
                         y.save()
                         t=UserToken.objects.get(user=request.user)
                         t.event1='1'
@@ -129,7 +129,7 @@ def verify(request):
                 if str(x) == str(coupon):
                         y=UserProfile.objects.get(user=request.user)
                         z=y.coins
-                        y.coins=500+100
+                        y.coins=z+100
                         y.save()
                         t=UserToken.objects.get(user=request.user)
                         t.event2='1'
@@ -143,7 +143,7 @@ def verify(request):
                 if str(x) == str(coupon):
                         y=UserProfile.objects.get(user=request.user)
                         z=y.coins
-                        y.coins=500+100
+                        y.coins=z+100
                         y.save()
                         t=UserToken.objects.get(user=request.user)
                         t.event3='1'
@@ -157,7 +157,7 @@ def verify(request):
                 if str(x) == str(coupon):
                         y=UserProfile.objects.get(user=request.user)
                         z=y.coins
-                        y.coins=500+100
+                        y.coins=z+100
                         y.save()
                         t=UserToken.objects.get(user=request.user)
                         t.event4='1'
