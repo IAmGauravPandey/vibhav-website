@@ -1,0 +1,594 @@
+{% extends "myapp/home.html" %}
+
+{% block event %}
+
+<div id="events"class="container-fluid " style="padding-top:70px;padding-bottom:70px;background-color: peachpuff">
+        <h1 class="text-center">Events</h1>
+        <hr>
+        <!-- event1 -->
+        <div class="row m-auto ">
+              <div class="col-md-3" style="padding-bottom:20px;">
+                    <div data-toggle="modal" data-target="#modal1">
+                            <div class="hovereffect">
+                                    <img class="img-fluid mx-auto d-block" src="https://media.gettyimages.com/photos/3d-rendered-blocks-picture-id1060070010" alt="">
+                                    <div class="overlay">
+                                       <h2>Event 1</h2>
+                                       <a class="info" href="#modal1">Details</a>
+                                    </div>
+                                </div>  
+                    </div>
+                    {% if user.is_authenticated %}
+                    {% if user.usertoken.event1 == '0' %}
+  
+                    <a href="#register" role="button" class="btn btn-primary btn-md container-fluid" data-toggle="modal">Register</a>
+  
+                    {% else %}
+                    {% if user.usertoken.event1 == '1' %}
+                    <div class="card container-fluid text-center bg-info">
+                          You have successfully reedeemed your coupon
+                    </div>
+                    {% else %}
+                    <a href="#event" role="button" class="btn btn-success btn-md disabled container-fluid" data-toggle="modal">Registered</a>
+                    <div class="row">
+                          <div class="col-md-12">
+                                <form class="row" id="verify1">
+                                      {% csrf_token %}
+                                      <div class="col-12 col-sm pr-sm-0">
+                                            <input type="text" name="coin1" id="coin1" placeholder="Enter the coupon Code to Reedem"
+                                                  class="form-control">
+                                      </div>
+                                      <div class="col-12 col-sm-auto pl-sm-0">
+                                            <button type="submit" class="btn btn-primary btn-block">GetCoin</button>
+                                      </div>
+                                </form>
+                          </div>
+                    </div>
+  
+                    {% endif %}
+  
+                    {% endif %}
+                    {% endif %}
+  
+  
+  
+              </div>
+  
+              <div class="modal fade" id="modal1">
+                    <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                      <h4 class="modal-title ">Event 1</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body container-fluid">
+                                      <div id="accordion1">
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#about1">
+                                                              ABOUT
+                                                        </button>
+                                                  </div>
+                                                  <div id="about1" class="collapse" data-parent="#accordion1">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid ">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#rules1">
+                                                              RULES
+                                                        </button>
+                                                  </div>
+                                                  <div id="rules1" class="collapse" data-parent="#accordion1">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#judge1">
+                                                              JUDGING CRITERIA
+                                                        </button>
+                                                  </div>
+                                                  <div id="judge1" class="collapse" data-parent="#accordion1">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#prize1">
+                                                              PRIZES
+                                                        </button>
+                                                  </div>
+                                                  <div id="prize1" class="collapse" data-parent="#accordion1">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#contact1">
+                                                              CONTACT
+                                                        </button>
+                                                  </div>
+                                                  <div id="contact1" class="collapse" data-parent="#accordion1">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                          </div>
+                    </div>
+  
+              </div>
+              <!--  end event1 -->
+              <!-- event2 -->
+              <div class="col-md-3" style="padding-bottom:20px;">
+                    <div data-toggle="modal" data-target="#modal2">
+                            <div class="hovereffect">
+                                    <img class="img-fluid mx-auto d-block" src="https://media.gettyimages.com/photos/3d-rendered-blocks-picture-id1060070010" alt="">
+                                    <div class="overlay">
+                                       <h2>Event 2</h2>
+                                       <a class="info" href="#modal2">Details</a>
+                                    </div>
+                                </div>    
+                    </div>
+                    {% if user.is_authenticated %}
+                    {% if user.usertoken.event2 == '0' %}
+  
+                    <a href="#register" role="button" class="btn btn-primary btn-md container-fluid" data-toggle="modal">Register</a>
+  
+  
+                    {% else %}
+                    {% if user.usertoken.event2 == '1' %}
+                    <div class="card container-fluid text-center bg-info">
+                          You have successfully reedeemed your coupon
+                    </div>
+                    {% else %}
+                    <a href="#event" role="button" class="btn btn-success btn-md disabled container-fluid" data-toggle="modal">Registered</a>
+                    <div class="row">
+                          <div class="col-md-12">
+                                <form class="row" id="verify2">
+                                      <div class="col-12 col-sm pr-sm-0">
+                                            <input type="text" name="coin2" id="coin2" placeholder="Enter the coupon Code to Reedem"
+                                                  class="form-control">
+                                      </div>
+                                      <div class="col-12 col-sm-auto pl-sm-0">
+                                            <button type="submit" class="btn btn-primary btn-block">GetCoin</button>
+                                      </div>
+                                </form>
+                          </div>
+                    </div>
+                    {% endif %}
+  
+  
+                    {% endif %}
+                    {% endif %}
+  
+  
+  
+              </div>
+              <div class="modal fade" id="modal2">
+                    <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                      <h4 class="modal-title">Event 2</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body container-fluid">
+                                      <div id="accordion2">
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#about2">
+                                                              ABOUT
+                                                        </button>
+                                                  </div>
+                                                  <div id="about2" class="collapse" data-parent="#accordion2">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid ">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#rules2">
+                                                              RULES
+                                                        </button>
+                                                  </div>
+                                                  <div id="rules2" class="collapse" data-parent="#accordion2">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#judge2">
+                                                              JUDGING CRITERIA
+                                                        </button>
+                                                  </div>
+                                                  <div id="judge2" class="collapse" data-parent="#accordion2">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#prize2">
+                                                              PRIZES
+                                                        </button>
+                                                  </div>
+                                                  <div id="prize2" class="collapse" data-parent="#accordion2">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#contact2">
+                                                              CONTACT
+                                                        </button>
+                                                  </div>
+                                                  <div id="contact2" class="collapse" data-parent="#accordion2">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                          </div>
+                    </div>
+  
+              </div>
+              <!--  end event2 -->
+              <!-- event3 -->
+              <div class="col-md-3" style="padding-bottom:20px;">
+                    <div data-toggle="modal" data-target="#modal3">
+                            <div class="hovereffect">
+                                    <img class="img-fluid mx-auto d-block" src="https://media.gettyimages.com/photos/3d-rendered-blocks-picture-id1060070010" alt="">
+                                    <div class="overlay">
+                                       <h2>Event 3</h2>
+                                       <a class="info" href="#modal3">Details</a>
+                                    </div>
+                                </div>    
+                    </div>
+                    {% if user.is_authenticated %}
+                    {% if user.usertoken.event3 == '0' %}
+  
+                    <a href="#register" role="button" class="btn btn-primary btn-md container-fluid" data-toggle="modal">Register</a>
+  
+                    {% else %}
+                    {% if user.usertoken.event3 == '1' %}
+                    <div class="card container-fluid text-center bg-info">
+                          You have successfully reedeemed your coupon
+                    </div>
+                    {% else %}
+                    <a href="#event" role="button" class="btn btn-success btn-md disabled container-fluid" data-toggle="modal">Registered</a>
+                    <div class="row">
+                          <div class="col-md-12">
+                                <form class="row" id="verify3">
+                                      <div class="col-12 col-sm pr-sm-0">
+                                            <input type="text" name="coin3" id="coin3" placeholder="Enter the coupon Code to Reedem"
+                                                  class="form-control">
+                                      </div>
+                                      <div class="col-12 col-sm-auto pl-sm-0">
+                                            <button type="submit" class="btn btn-primary btn-block">GetCoin</button>
+                                      </div>
+                                </form>
+                          </div>
+                    </div>
+  
+                    {% endif %}
+  
+                    {% endif %}
+                    {% endif %}
+  
+  
+  
+              </div>
+              <div class="modal fade" id="modal3">
+                    <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                      <h4 class="modal-title">Event 3</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body container-fluid">
+                                      <div id="accordion3">
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#about3">
+                                                              ABOUT
+                                                        </button>
+                                                  </div>
+                                                  <div id="about3" class="collapse" data-parent="#accordion3">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid ">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#rules3">
+                                                              RULES
+                                                        </button>
+                                                  </div>
+                                                  <div id="rules3" class="collapse" data-parent="#accordion3">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#judge3">
+                                                              JUDGING CRITERIA
+                                                        </button>
+                                                  </div>
+                                                  <div id="judge3" class="collapse" data-parent="#accordion3">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#prize3">
+                                                              PRIZES
+                                                        </button>
+                                                  </div>
+                                                  <div id="prize3" class="collapse" data-parent="#accordion3">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#contact3">
+                                                              CONTACT
+                                                        </button>
+                                                  </div>
+                                                  <div id="contact3" class="collapse" data-parent="#accordion3">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                          </div>
+                    </div>
+  
+              </div>
+              <!-- end event3 -->
+              <!--  event4 -->
+              <div class="col-md-3" style="padding-bottom:20px;">
+                    <div data-toggle="modal" data-target="#modal4">
+                            <div class="hovereffect">
+                                    <img class="img-fluid mx-auto d-block" src="https://media.gettyimages.com/photos/3d-rendered-blocks-picture-id1060070010" alt="">
+                                    <div class="overlay">
+                                       <h2>Event 4</h2>
+                                       <a class="info" href="#modal4">Details</a>
+                                    </div>
+                                </div>    
+                    </div>
+                    {% if user.is_authenticated %}
+                    {% if user.usertoken.event4 == '0' %}
+  
+                    <a href="#register" role="button" class="btn btn-primary btn-md container-fluid" data-toggle="modal">Register</a>
+  
+                    {% else %}
+                    {% if user.usertoken.event4 == '1' %}
+                    <div class="card container-fluid text-center bg-info">
+                          You have successfully reedeemed your coupon
+                    </div>
+                    {% else %}
+                    <a href="#event" role="button" class="btn btn-success btn-md disabled container-fluid" data-toggle="modal">Registered</a>
+                    <div class="row" id="verify4">
+                          <div class="col-md-12">
+                                <form class="row">
+                                      <div class="col-12 col-sm pr-sm-0">
+                                            <input type="text" name="coin4" id="coin4" placeholder="Enter the coupon Code to Reedem"
+                                                  class="form-control">
+                                      </div>
+                                      <div class="col-12 col-sm-auto pl-sm-0">
+                                            <button type="submit" class="btn btn-primary btn-block">GetCoin</button>
+                                      </div>
+                                </form>
+                          </div>
+                    </div>
+                    {% endif %}
+  
+  
+                    {% endif %}
+                    {% endif %}
+  
+  
+  
+              </div>
+              <div class="modal fade" id="modal4">
+                    <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                      <h4 class="modal-title">Event 4</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body container-fluid">
+                                      <div id="accordion4">
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#about4">
+                                                              ABOUT
+                                                        </button>
+                                                  </div>
+                                                  <div id="about4" class="collapse" data-parent="#accordion4">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid ">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#rules4">
+                                                              RULES
+                                                        </button>
+                                                  </div>
+                                                  <div id="rules4" class="collapse" data-parent="#accordion4">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#judge4">
+                                                              JUDGING CRITERIA
+                                                        </button>
+                                                  </div>
+                                                  <div id="judge4" class="collapse" data-parent="#accordion4">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#prize4">
+                                                              PRIZES
+                                                        </button>
+                                                  </div>
+                                                  <div id="prize4" class="collapse" data-parent="#accordion4">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                            <div class="card">
+                                                  <div class="container-fluid">
+                                                        <button type="button" class="btn-lg btn bg-light container-fluid"
+                                                              data-toggle="collapse" data-target="#contact4">
+                                                              CONTACT
+                                                        </button>
+                                                  </div>
+                                                  <div id="contact4" class="collapse" data-parent="#accordion4">
+                                                        <div class="card-body">
+                                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                              sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                          </div>
+                    </div>
+  
+              </div>
+              <!-- end event4 -->
+  
+  
+        </div>
+  
+  </div>
+
+{% endblock event %}

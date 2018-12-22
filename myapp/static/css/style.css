@@ -1,0 +1,75 @@
+
+.about{
+  background-image:url('https://mobirise.com/bootstrap-4-theme/coming-soon-template/assets/images/mbr-1620x1080.jpg');
+  opacity:0.65;
+  width:auto;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 400px;
+  color:white;
+
+}
+.contacts{
+  background-image:url('https://www.w3schools.com/howto/img_parallax3.jpg');
+  opacity:0.65;
+  width:auto;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 400px;
+  color:white;
+
+}
+body {
+    position: relatives; 
+}
+nav{
+  width:70%;
+  margin:auto;
+  margin-top: -35px;
+}
+nav .active{
+  font-size: 120%;
+  color:black;
+  background: greenyellow;
+}
+.contents{
+  margin-top: -35px;
+}
+.carousel-indicators{
+  padding-bottom: 50px;
+}
+.carousel-caption{
+  padding-bottom: 50px;
+}
+#list-day1-list .active {
+  background-color:pink;
+  color: black;
+}
+#list-tab .nav-item{
+  background-color:chartreuse;
+  color:black;
+}
+#list-tab .active{
+  background-color:pink;
+}
+#list-day1,#list-day2{
+  color:chocolate;
+  background-color:white;
+}
+#events img:hover{
+  height:110%;
+}
+@media only screen and (max-width: 800px) {
+  nav{
+    width:100%;
+  }
+  .carousel-item img{
+    height:290px;
+  }
+}

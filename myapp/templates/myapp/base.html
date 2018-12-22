@@ -1,0 +1,437 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vibhav</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"> 
+  <link rel="stylesheet" href="{% static 'css/images.css' %}" type="text/css"> 
+
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/track-modal.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/countdown.js' %}"></script>
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous" />
+
+
+</head>
+<body  data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="parallax"></div>
+<div class="full-screen">
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/bg1.jpg' %}" alt="Los Angeles" width="100%" style="max-height:500px;">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>We had such a great time in LA!</p>
+        </div>   
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/bg2.jpeg' %}" alt="Chicago" width="100%" style="max-height:500px;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>   
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/bg3.jpeg' %}" alt="New York" width="100%" style="max-height:500px;">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>   
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
+  {% if user.is_authenticated %}
+  <h4>{{ coin }} <img src="http://pngimg.com/uploads/coin/coin_PNG36900.png" width="40px" height="40px">
+  </h4>
+  {% else %}
+  <a class="navbar-brand" href="/">Vibhav</a>
+  {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#events">Events</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link " href="#schedule">Schedule</a>
+                  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacts">Contacts</a>
+            </li>    
+            
+          </ul>
+          <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                        <a class="nav-link " href="https://www.facebook.com/vibhav.iitismdhanbad/" target="_blank">
+                          <i class="fab fa-facebook-f"> </i>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link" href="https://www.facebook.com/labscyber" target="_blank">
+                              <i class="fab fa-instagram"> </i>
+                            </a>
+                          </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link btn btn-primary btn-md" href="/logout">  Logout </a></li>
+                {% else %}
+                <li class="nav-item">
+                 
+                      <div class="col-12 text-center py-2">
+                          <a href="#loginModal" role="button" class="btn btn-primary btn-md" data-toggle="modal">Login</a>
+                      </div>
+               
+              </li>
+              
+              
+                <li class="nav-item">
+                  <div class="col-12 text-center py-2">
+                    <a href="#registerModal" role="button" class="btn btn-primary btn-md" data-toggle="modal">Register</a>
+                </div>
+                </li>
+                {% endif %}
+              </ul>
+        </div>  
+      </nav>
+
+      <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Login</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                      {% csrf_token %}  
+                      <div class="form-group">
+                            <a href="" class="float-right">New User?</a>
+                            <label for="id_username">Admission number</label>
+                            <input placeholder="Admission number" type="text" class="form-control form-control-lg" name="username" id="username" required>
+                            <div class="invalid-feedback">Oops, you missed this one.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password">Password</label>
+                            <input placeholder="Password"type="password" class="form-control form-control-lg" id="id_password" required name="password">
+                            <div class="invalid-feedback">Enter your password too!</div>
+                        </div>
+                        <a href="/password_reset">Forgot Password?</a>
+                        <div class="form-group py-4">
+                            <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="registerModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3>Register</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+              <div class="modal-body">
+                  <form class="form" role="form" autocomplete="off" id="formRegister" novalidate="" method="POST">
+                    {% csrf_token %}  
+                    <div class="form-group">
+                        <a href="" class="float-right">Already Have a Account?</a>
+                      <label for="id_name">Name</label>
+                      <input placeholder="Name" type="text" class="form-control form-control-lg" name="name" id="id_name" required>
+                      <div class="invalid-feedback">Oops, you missed this one.</div>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="id_username">Admission number</label>
+                      <input placeholder="Admission number" type="text" class="form-control form-control-lg" name="username" id="id_username" required>
+                      <div class="invalid-feedback">Oops, you missed this one.</div>
+                  </div>
+
+                      <div class="form-group">
+                          <label for="id_password1">Password</label>
+                          <input placeholder="Password"type="password" class="form-control form-control-lg" id="id_password1" required name="password1">
+                          <div class="invalid-feedback">Enter your password too!</div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="id_branch">Branch</label>
+                          <input placeholder="Branch Name" type="text" class="form-control form-control-lg" name="branch" id="id_branch" required>
+                          <div class="invalid-feedback">Oops, you missed this one.</div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="id_email">Email</label>
+                          <input placeholder="Email" type="email" class="form-control form-control-lg" name="email" id="id_email" required>
+                          <div class="invalid-feedback">Oops, you missed this one.</div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="id_phone">WhatsApp number</label>
+                          <input placeholder="WhatsApp Number" type="text" class="form-control form-control-lg" name="phone" id="id_phone" required>
+                          <div class="invalid-feedback">Oops, you missed this one.</div>
+                      </div>
+                      <div class="form-group py-4">
+                          <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                          <button type="submit" class="btn btn-success btn-lg float-right" id="btnRegister">Register</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+<div class="contents">
+
+   {% block content %}
+      {% endblock content %}
+</div>
+
+     
+       <script>
+         $("#btnLogin").click(function(event) {
+
+//Fetch form to apply custom Bootstrap validation
+var form = $("#formLogin")
+
+if (form[0].checkValidity() === false) {
+  event.preventDefault()
+  event.stopPropagation()
+}
+form.addClass('was-validated');
+
+});
+
+$("#btnRegister").click(function(event) {
+
+//Fetch form to apply custom Bootstrap validation
+var form = $("#formRegister")
+
+if (form[0].checkValidity() === false) {
+  event.preventDefault()
+  event.stopPropagation()
+}
+form.addClass('was-validated');
+
+});
+
+
+
+       </script>    
+
+       <script type="text/javascript">
+
+
+       $(document).on('submit','#formRegister',function(e){
+         e.preventDefault();
+        $.ajax({
+          type:'POST',
+          url:'/register',
+          data:{
+            id_name:$('#id_name').val(),
+            id_username:$('#id_username').val(),
+            id_password1:$('#id_password1').val(),
+            id_branch:$('#id_branch').val(),
+            id_email:$('#id_email').val(),
+            id_phone:$('#id_phone').val(),
+            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+          },
+          success:function(response){
+            if(response=='Success'){
+               window.location.href="/";
+               alert('Registered successfully')
+             }
+             else{
+             alert("User Already Exist");
+             }
+          },
+          error:function(xhr){
+             alert(`An erroe occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+          }
+        })
+
+       })
+
+
+       $(document).on('submit','#formLogin',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/loginu',
+           data:{
+             username:$('#username').val(),
+             id_password:$('#id_password').val(),
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+             }
+             else{
+             alert("wrong Credentials");
+             }
+           },
+           error:function(xhr){
+             alert(`An erroe occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+        $(document).on('submit','#register',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/eventregister',
+           data:{
+             team_name:$('#id_team_name').val(),
+             event:$('#eventselected').val(),
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/#events";
+               alert('Registered Successfuly.Participate to get the coupon')
+             }
+             else{
+             alert("Fill the form properly");
+             }
+           },
+           error:function(xhr){
+             alert(`An erroe occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+       
+       $(document).on('submit','#verify1',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#coin1').val(),
+             event:'1',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/#events";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+        $(document).on('submit','#verify2',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#coin2').val(),
+             event:'2',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/#events";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+        $(document).on('submit','#verify3',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#coin3').val(),
+             event:'3',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/#events";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+       $(document).on('submit','#verify4',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#coin4').val(),
+             event:'4',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/#events";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+       </script>
+       <div class="parallax"></div>
+</body>
+</html>
+
