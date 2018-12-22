@@ -93,10 +93,18 @@
                                     <label for="eventselected">Select the event:</label>
                                     <select class="form-control form-control-lg" id="eventselected" name="eventselected">
                                           <option selected>-------</option>
+                                          {% if user.usertoken.event1 == '0' %}
                                           <option>event1</option>
+                                          {% endif %}
+                                          {% if user.usertoken.event2 == '0' %}
                                           <option>event2</option>
+                                          {% endif %}
+                                          {% if user.usertoken.event3 == '0' %}
                                           <option>event3</option>
+                                          {% endif %}
+                                          {% if user.usertoken.event4 == '0' %}
                                           <option>event4</option>
+                                          {% endif %}
                                     </select>
                               </div>
                               <div class="form-group py-4">
