@@ -14,6 +14,11 @@ from .models import UserProfile,Event,UserToken,Registration,EventRules
 import random
 import itertools
 
+if(Event.objects.all().count() == 0):
+        for i in range(14):
+                name='event'+str(i)
+                Event.objects.create(name=name)
+
 # Create your views here.
 def home(request):
         eventa=Event.objects.all()
