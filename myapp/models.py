@@ -27,6 +27,14 @@ post_save.connect(create_profile,sender=User)
 class Event(models.Model):
     name=models.CharField(max_length=100,default='')
 
+class EventRules(models.Model):
+    event=models.OneToOneField(Event,on_delete=models.CASCADE)
+    about=models.CharField(max_length=1500,default='')
+    rules=models.CharField(max_length=1500,default='')
+    judging=models.CharField(max_length=1500,default='')
+    prizes=models.CharField(max_length=1500,default='')
+    contacts=models.CharField(max_length=1500,default='')
+
 class Registration(models.Model):
     event=models.CharField(max_length=100,default='')
     team_name=models.CharField(max_length=50,default='')

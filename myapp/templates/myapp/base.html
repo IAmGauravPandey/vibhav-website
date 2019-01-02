@@ -22,12 +22,34 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous" />
-
-
+   
 </head>
 <body  data-spy="scroll" data-target=".navbar" data-offset="50">
-<div class="parallax"></div>
-<div class="full-screen">
+
+      <section class="hero" >
+        <div class="hero-inner">
+            
+            <section id="section03" class="demo">
+              <h1>Vibhav 2k18</h1>
+            <h2>The Techfest of Electrical Department</h2>
+              <a href="#navb"><span></span>Scroll</a>
+              <script>
+                  $('a[href^="#"]').on('click', function(event) {
+                  var target = $(this.getAttribute('href'));
+                  if( target.length ) {
+                      event.preventDefault();
+                      $('html, body').stop().animate({
+                          scrollTop: target.offset().top
+                      }, 1000);
+                  }
+              });
+                  </script>
+            </section>
+        </div>
+    </section>
+
+  
+ <div class="full-screen">
 <div id="demo" class="carousel slide" data-ride="carousel">
     <ul class="carousel-indicators">
       <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -64,9 +86,10 @@
       <span class="carousel-control-next-icon"></span>
     </a>
   </div>
-</div>
+</div> 
 
-<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
+
+<nav id="navb" class="navbar navbar-expand-md bg-light navbar-light sticky-top">
   {% if user.is_authenticated %}
   <h4>{{ coin }} <img src="http://pngimg.com/uploads/coin/coin_PNG36900.png" width="40px" height="40px">
   </h4>
@@ -220,6 +243,9 @@
 
      
        <script>
+
+
+
          $("#btnLogin").click(function(event) {
 
 //Fetch form to apply custom Bootstrap validation
@@ -333,13 +359,13 @@ form.addClass('was-validated');
          })
        })
        
-       $(document).on('submit','#verify1',function(e){
+       $(document).on('submit','#event1verify',function(e){
          e.preventDefault();
          $.ajax({
            type:'POST',
            url:'/verify',
            data:{
-             coupon:$('#coin1').val(),
+             coupon:$('#event1coin').val(),
              event:'1',
              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
            },
@@ -358,13 +384,13 @@ form.addClass('was-validated');
          })
        })
 
-        $(document).on('submit','#verify2',function(e){
+        $(document).on('submit','#event2verify',function(e){
          e.preventDefault();
          $.ajax({
            type:'POST',
            url:'/verify',
            data:{
-             coupon:$('#coin2').val(),
+             coupon:$('#event2coin').val(),
              event:'2',
              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
            },
@@ -383,13 +409,13 @@ form.addClass('was-validated');
          })
        })
 
-        $(document).on('submit','#verify3',function(e){
+        $(document).on('submit','#event3verify',function(e){
          e.preventDefault();
          $.ajax({
            type:'POST',
            url:'/verify',
            data:{
-             coupon:$('#coin3').val(),
+             coupon:$('#event3coin').val(),
              event:'3',
              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
            },
@@ -407,13 +433,13 @@ form.addClass('was-validated');
            }
          })
        })
-       $(document).on('submit','#verify4',function(e){
+       $(document).on('submit','#event4verify',function(e){
          e.preventDefault();
          $.ajax({
            type:'POST',
            url:'/verify',
            data:{
-             coupon:$('#coin4').val(),
+             coupon:$('#event4coin').val(),
              event:'4',
              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
            },
@@ -431,8 +457,256 @@ form.addClass('was-validated');
            }
          })
        })
+
+       $(document).on('submit','#event5verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event5coin').val(),
+             event:'5',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event6verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event6coin').val(),
+             event:'6',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event7verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event7coin').val(),
+             event:'7',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event8verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event8coin').val(),
+             event:'8',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event9verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event9coin').val(),
+             event:'9',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+       $(document).on('submit','#event10verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event10coin').val(),
+             event:'10',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event11verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event11coin').val(),
+             event:'11',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event12verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event12coin').val(),
+             event:'12',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event13verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event13coin').val(),
+             event:'13',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
+
+       $(document).on('submit','#event14verify',function(e){
+         e.preventDefault();
+         $.ajax({
+           type:'POST',
+           url:'/verify',
+           data:{
+             coupon:$('#event14coin').val(),
+             event:'14',
+             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+           },
+           success:function(response){
+             if(response=='Success'){
+               window.location.href="/";
+               alert('Hurray...Your coupoun has been reedemed')
+             }
+             else{
+             alert("Invalid Coupon");
+             }
+           },
+           error:function(xhr){
+             alert(`An error occcured: `+xhr.status+" "+ xhr.statusText+" "+xhr.responseText);
+           }
+         })
+       })
        </script>
-       <div class="parallax"></div>
 </body>
 </html>
 

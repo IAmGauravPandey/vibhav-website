@@ -17,6 +17,8 @@ $("#nav ul li a[href^='#']").on('click', function(e) {
       });
  
  });
+ 
+
  $(document).ready(function(){
   $('.page-item').click(function(){
    var selected=$(this);

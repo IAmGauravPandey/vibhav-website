@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile,Event,UserToken,Registration
+from .models import UserProfile,Event,UserToken,Registration,EventRules
 
 # Register your models here.
 class RegistrationAdmin(admin.ModelAdmin):
@@ -26,4 +26,5 @@ admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(Event,EventAdmin)
 admin.site.register(Registration,RegistrationAdmin)
 admin.site.register(UserToken)
+admin.site.register(EventRules)
 admin.site.site_header='Admin'

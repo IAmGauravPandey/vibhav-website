@@ -10,19 +10,33 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.dispatch import receiver
 from django.contrib.auth import login,authenticate
-from .models import UserProfile,Event,UserToken,Registration
+from .models import UserProfile,Event,UserToken,Registration,EventRules
 import random
+import itertools
 
 # Create your views here.
 def home(request):
+        eventa=Event.objects.all()
+        events=[]
+        for ev in eventa:
+                events.append(ev.name)
+                print(ev.eventrules.about)
+        print(events)
         if request.user.is_authenticated:
-                events=Event.objects.all()
+                
                 u=UserProfile.objects.get(user=request.user)
+                t=UserToken.objects.get(user=request.user)
+                tokens=[]
+                tokens.append(t.event1),tokens.append(t.event2),tokens.append(t.event3),tokens.append(t.event4),tokens.append(t.event5),tokens.append(t.event6),tokens.append(t.event7)
+                tokens.append(t.event8),tokens.append(t.event9),tokens.append(t.event10),tokens.append(t.event11),tokens.append(t.event12),tokens.append(t.event13),tokens.append(t.event14)
+                print(tokens)
                 coin=u.coins
-                args={'events':events,'coin':coin}
+                mylist=zip(events,tokens,eventa)
+                args={'coin':coin,'mylist':mylist}
                 return render(request,'myapp/events.html',args)
-        events=Event.objects.all()
-        args={'events':events}
+        tokens=[5,5,5,5,5,5,5,5,5,5,5,5,5,5]
+        mylist=zip(events,tokens,eventa)
+        args={'mylist':mylist}
         return render(request,'myapp/events.html',args)
 
 def register(request):
@@ -73,33 +87,33 @@ def eventregister(request):
         x=random.randint(999,99999)*67
         events=Event.objects.all()
         regi=UserToken.objects.get(user=request.user)
-        if event=='event1':
+        if event=='Event1':
                 regi.event1=x
-        if event=='event2':
+        if event=='Event2':
                 regi.event2=x
-        if event=='event3':
+        if event=='Event3':
                 regi.event3=x
-        if event=='event4':
+        if event=='Event4':
                 regi.event4=x
-        if event=='event5':
+        if event=='Event5':
                 regi.event5=x
-        if event=='event6':
+        if event=='Event6':
                 regi.event6=x
-        if event=='event7':
+        if event=='Event7':
                 regi.event7=x
-        if event=='event8':
+        if event=='Event8':
                 regi.event8=x
-        if event=='event9':
+        if event=='Event9':
                 regi.event9=x
-        if event=='event10':
+        if event=='Event10':
                 regi.event10=x
-        if event=='event11':
+        if event=='Event11':
                 regi.event11=x
-        if event=='event12':
+        if event=='Event12':
                 regi.event12=x
-        if event=='event13':
+        if event=='Event13':
                 regi.event13=x
-        if event=='event14':
+        if event=='Event14':
                 regi.event14=x
         
         regi.save()
@@ -161,6 +175,146 @@ def verify(request):
                         y.save()
                         t=UserToken.objects.get(user=request.user)
                         t.event4='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='5':
+                x=request.user.usertoken.event5
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event5='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='6':
+                x=request.user.usertoken.event6
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event6='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='7':
+                x=request.user.usertoken.event7
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event7='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='8':
+                x=request.user.usertoken.event8
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event8='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='9':
+                x=request.user.usertoken.event9
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event9='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='10':
+                x=request.user.usertoken.event10
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event10='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='11':
+                x=request.user.usertoken.event11
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event11='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='12':
+                x=request.user.usertoken.event12
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event12='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='13':
+                x=request.user.usertoken.event13
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event13='1'
+                        t.save()
+                        return HttpResponse('Success')
+                else:
+                        return HttpResponse('Wrong')
+
+        if event=='14':
+                x=request.user.usertoken.event14
+                if str(x) == str(coupon):
+                        y=UserProfile.objects.get(user=request.user)
+                        z=y.coins
+                        y.coins=z+100
+                        y.save()
+                        t=UserToken.objects.get(user=request.user)
+                        t.event14='1'
                         t.save()
                         return HttpResponse('Success')
                 else:

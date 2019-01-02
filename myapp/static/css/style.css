@@ -1,4 +1,155 @@
 
+     
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+    
+    .hero {
+        /* Sizing */
+        width: 99.3vw;
+        height: 100vh;
+        
+        /* Flexbox stuff */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        /* Text styles */
+        text-align: center;
+        color: white; /* ADD THIS LINE */
+        
+        /* Background styles */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    
+    .hero h1 {
+        /* Text styles */
+        font-size: 5em;
+        
+        /* Margins */
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
+    
+    .hero .btn {
+        /* Positioning and sizing */
+        display: block;
+        width: 200px;
+        
+        /* Padding and margins */
+        padding: 1em;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        /* Text styles */
+        color: white;
+        text-decoration: none;
+        font-size: 1.5em;
+        
+        /* Border styles */
+        border: 3px solid white;
+        border-radius: 20px;
+        
+        /* Background styles */
+        background-color: rgba(147, 112, 219, 0.8);
+    }
+    .demo a {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      z-index: 2;
+      display: inline-block;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      color: #fff;
+      font : normal 400 20px/1 'Josefin Sans', sans-serif;
+      letter-spacing: .1em;
+      text-decoration: none;
+      transition: opacity .3s;
+    }
+    .demo a:hover {
+      opacity: .5;
+    }
+    #section03 a {
+      padding-top: 60px;
+    }
+    #section03 a span {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 46px;
+      height: 46px;
+      margin-left: -23px;
+      border: 1px solid #fff;
+      border-radius: 100%;
+      box-sizing: border-box;
+    }
+    #section03 a span::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: '';
+      width: 16px;
+      height: 16px;
+      margin: -12px 0 0 -8px;
+      border-left: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      box-sizing: border-box;
+    }
+    #section03 a span::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      content: '';
+      width: 44px;
+      height: 44px;
+      box-shadow: 0 0 0 0 rgba(255,255,255,.1);
+      border-radius: 100%;
+      opacity: 0;
+      -webkit-animation: sdb03 3s infinite;
+      animation: sdb03 3s infinite;
+      box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      60% {
+        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes sdb03 {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      60% {
+        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    
 .about{
   background-image:url('https://mobirise.com/bootstrap-4-theme/coming-soon-template/assets/images/mbr-1620x1080.jpg');
   opacity:0.65;
@@ -77,6 +228,14 @@ nav .active{
   .carousel-item img{
     height:290px;
   }
+  .hero{
+    display: none;
+  }
 
 }
-
+@media only screen and (min-width: 800px) {
+  
+  .full-screen{
+    display: none;
+  }
+}
