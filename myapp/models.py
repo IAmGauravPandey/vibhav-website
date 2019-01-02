@@ -35,6 +35,12 @@ class EventRules(models.Model):
     prizes=models.CharField(max_length=1500,default='')
     contacts=models.CharField(max_length=1500,default='')
 
+def create_rules(sender,**kwargs):
+    if kwargs['created']:
+         event_rules=EventRules.objects.create(event=kwargs['instance'])
+
+post_save.connect(create_rules,sender=Event)
+
 class Registration(models.Model):
     event=models.CharField(max_length=100,default='')
     team_name=models.CharField(max_length=50,default='')
